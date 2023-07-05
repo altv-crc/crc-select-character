@@ -1,0 +1,1 @@
+This file will tell the 'watch-resources' resource to invoke a reconnect locally.
