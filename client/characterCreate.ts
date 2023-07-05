@@ -1,6 +1,6 @@
 import * as alt from 'alt-client';
 
-function handlePromptForName(name: string) {
+export function handleName(name: string) {
     if (name === '' || !name) {
         const textDraw = alt.Utils.drawText2d(
             'Name is invalid.~n~Must include first and last.',
@@ -57,4 +57,4 @@ function handlePromptForName(name: string) {
     alt.emitServer('crc-select-character-create', `${first}_${last}`);
 }
 
-alt.on('crc-select-character-create', handlePromptForName);
+

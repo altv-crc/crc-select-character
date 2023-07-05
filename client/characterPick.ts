@@ -3,7 +3,7 @@ import { Character } from '../shared';
 
 let character: Character;
 
-function showCharacterPick(_character: Character) {
+export function show(_character: Character) {
     if (_character) {
         character = _character;
     }
@@ -39,8 +39,7 @@ function showCharacterPick(_character: Character) {
     alt.emit('crc-native-menu', { create: menu });
 }
 
-alt.on('crc-select-character-pick', showCharacterPick);
-alt.on('crc-select-character-select', (_id: string) => {
+export function select(_id: string) {
     alt.emit('crc-native-menu', { destroy: true });
     alt.emitServer('crc-select-character-select-confirm', _id);
-});
+}

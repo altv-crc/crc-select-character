@@ -1,7 +1,7 @@
 import * as alt from 'alt-client';
 import { Character } from '../shared';
 
-function showCharacterDelete(character: Character) {
+export function show(character: Character) {
     alt.emit('crc-native-menu', { destroy: true });
 
     const menu = {
@@ -27,7 +27,7 @@ function showCharacterDelete(character: Character) {
     alt.emit('crc-native-menu', { create: menu });
 }
 
-alt.on('crc-select-character-delete-confirm', (_id: string) => {
+export function confirm(_id: string) {
     alt.emit('crc-native-menu', { destroy: true });
     alt.emitServer('crc-select-character-delete-confirm', _id);
 
@@ -44,6 +44,5 @@ alt.on('crc-select-character-delete-confirm', (_id: string) => {
     alt.setTimeout(() => {
         textDraw.destroy();
     }, 4000);
-});
+}
 
-alt.on('crc-select-character-delete', showCharacterDelete);

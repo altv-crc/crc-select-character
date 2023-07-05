@@ -16,6 +16,12 @@ async function getCharacters(player: alt.Player, account: Account) {
     return characters;
 }
 
+async function initializeCharacterSelect(player: alt.Player, account: Account) {
+    player.emit('crc-select-character-init');
+    await alt.Utils.wait(1000);
+    await openCharacterSelect(player, account);
+}
+
 async function openCharacterSelect(player: alt.Player, account: Account) {
     await alt.Utils.waitFor(() => isDatabaseReady);
     const characters = await getCharacters(player, account);
@@ -92,9 +98,10 @@ alt.onClient('crc-select-character-select-confirm', async (player: alt.Player, _
         alt.emit('crc-select-character-finish-create', player, character);
     }
 
+    player.emit('crc-select-character-finish');
     delete selectingCharacter[player.id];
 });
 
 // Support for other login types
-alt.on('crc-discord-login-finish', openCharacterSelect);
-alt.on('crc-login-finish', openCharacterSelect);
+alt.on('crc-discord-login-finish', initializeCharacterSelect);
+alt.on('crc-login-finish', initializeCharacterSelect);

@@ -83,6 +83,16 @@ alt.onServer('crc-select-character-start', (characters: Character[]) => {
 })
 ```
 
+#### crc-select-character-finish
+
+This is called when the character selection is completed. All events are unloaded.
+
+```ts
+alt.onServer('crc-select-character-finish', () => {
+    //
+})
+```
+
 ### Client Events
 
 #### crc-select-character-pick
