@@ -92,7 +92,7 @@ This is called when a player has picked the character in the menu.
 This does not mean they are `choosen` to spawn. This is when they're given more options like `select`, `delete`, etc.
 
 ```ts
-alt.onServer('crc-select-character-pick', (characters: Character[]) => {
+alt.on('crc-select-character-pick', (characters: Character[]) => {
     //
 })
 ```
@@ -104,7 +104,7 @@ This is called whenever a player re-renders the menu.
 * Occurs when going back a menu or two
 
 ```ts
-alt.onServer('crc-select-character-back-to-characters', (characters: Character[]) => {
+alt.on('crc-select-character-back-to-characters', (characters: Character[]) => {
     //
 })
 ```
