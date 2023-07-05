@@ -91,6 +91,8 @@ alt.onClient('crc-select-character-select-confirm', async (player: alt.Player, _
         // player: alt.Player, character: Character
         alt.emit('crc-select-character-finish-create', player, character);
     }
+
+    delete selectingCharacter[player.id];
 });
 
 // Support for other login types
