@@ -3,28 +3,27 @@ import { Character } from '../shared';
 
 export function show(character: Character) {
     alt.emit('crc-native-menu', { destroy: true });
-
-    const menu = {
-        header: `Delete ${character.name}?`,
-        backEvent: 'crc-select-character-pick',
-        noExit: true,
-        options: [
-            {
-                text: 'Yes',
-                type: 'invoke',
-                value: character._id,
-                eventName: 'crc-select-character-delete-confirm',
-            },
-            {
-                text: 'No',
-                type: 'invoke',
-                value: character,
-                eventName: 'crc-select-character-pick',
-            },
-        ],
-    };
-
-    alt.emit('crc-native-menu', { create: menu });
+    alt.emit('crc-native-menu', {
+        create: {
+            header: `Delete ${character.name}?`,
+            backEvent: 'crc-select-character-pick',
+            noExit: true,
+            options: [
+                {
+                    text: 'Yes',
+                    type: 'invoke',
+                    value: character._id,
+                    eventName: 'crc-select-character-delete-confirm',
+                },
+                {
+                    text: 'No',
+                    type: 'invoke',
+                    value: character,
+                    eventName: 'crc-select-character-pick',
+                },
+            ],
+        },
+    });
 }
 
 export function confirm(_id: string) {
@@ -45,4 +44,3 @@ export function confirm(_id: string) {
         textDraw.destroy();
     }, 4000);
 }
-

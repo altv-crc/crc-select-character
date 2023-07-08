@@ -2,15 +2,45 @@ import * as alt from 'alt-server';
 
 import { Character } from '../shared';
 
-declare module 'alt-server' {
-    export function on(
-        eventName: 'crc-select-character-finish',
-        listener: (player: alt.Player, character: Character) => void
-    ): void;
+declare module 'alt-shared' {
+    interface ICustomServerClientEvent {
+        /**
+         * Initializes all select character events
+         *
+         * @memberof ICustomServerClientEvent
+         */
+        'crc-select-character-init': () => void;
 
-    export function on(
-        eventName: 'crc-select-character-finish-create',
-        listener: (player: alt.Player, character: Character) => void
-    ): void;
+        /**
+         * Stops all select character events
+         *
+         * @memberof ICustomServerClientEvent
+         */
+        'crc-select-character-finish': () => void;
+
+        /**
+         * Opens the character select after `crc-select-character-init` has been called
+         *
+         * @memberof ICustomServerClientEvent
+         */
+        'src-select-character-start': <T = Character>(characters: T[]) => void;
+    }
 }
 
+declare module 'alt-server' {
+    interface ICustomEmitEvent {
+        /**
+         * Called when the player needs to `create` appearance on a `Character`
+         *
+         * @memberof ICustomEmitEvent
+         */
+        'crc-select-character-finish-create': (player: alt.Player, character: Character) => void;
+
+        /**
+         * Called when the player has `appearance` on `Character` and needs to resume their session.
+         *
+         * @memberof ICustomEmitEvent
+         */
+        'crc-select-character-finish': (player: alt.Player, character: Character) => void;
+    }
+}
