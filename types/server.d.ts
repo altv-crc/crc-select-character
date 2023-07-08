@@ -23,7 +23,7 @@ declare module 'alt-shared' {
          *
          * @memberof ICustomServerClientEvent
          */
-        'src-select-character-start': <T = Character>(characters: T[]) => void;
+        'crc-select-character-start': <T = Character>(characters: T[]) => void;
     }
 }
 
