@@ -56,7 +56,7 @@ _Your resource structure may vary_
 This is called when a player has selected an existing character with the `appearance` property applied to the document.
 
 ```ts
-alt.on('crc-select-character-finish', (player: alt.Player, character: Character) => {
+alt.on('crc-select-character-finish', (player: alt.Player, _id: string) => {
     //
 })
 ```
@@ -66,7 +66,7 @@ alt.on('crc-select-character-finish', (player: alt.Player, character: Character)
 This is called when a player has created a character but does not have any `appearance` information.
 
 ```ts
-alt.on('crc-select-character-finish-create', (player: alt.Player, character: Character) => {
+alt.on('crc-select-character-finish-create', (player: alt.Player, _id: string) => {
     //
 })
 ```
