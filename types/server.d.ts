@@ -34,13 +34,13 @@ declare module 'alt-server' {
          *
          * @memberof ICustomEmitEvent
          */
-        'crc-select-character-finish-create': (player: alt.Player, character: Character) => void;
+        'crc-select-character-finish-create': (player: alt.Player, _id: string) => void;
 
         /**
          * Called when the player has `appearance` on `Character` and needs to resume their session.
          *
          * @memberof ICustomEmitEvent
          */
-        'crc-select-character-finish': (player: alt.Player, character: Character) => void;
+        'crc-select-character-finish': (player: alt.Player, _id: string) => void;
     }
 }

@@ -90,12 +90,12 @@ alt.onClient('crc-select-character-select-confirm', async (player: alt.Player, _
         alt.log(`Character Selected: ${character.name}`);
 
         // player: alt.Player, character: Character
-        alt.emit('crc-select-character-finish', player, character);
+        alt.emit('crc-select-character-finish', player, character._id);
     } else {
         alt.log(`Creation Request: ${character.name}`);
 
         // player: alt.Player, character: Character
-        alt.emit('crc-select-character-finish-create', player, character);
+        alt.emit('crc-select-character-finish-create', player, character._id);
     }
 
     player.emit('crc-select-character-finish');
