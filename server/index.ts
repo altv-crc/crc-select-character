@@ -1,6 +1,6 @@
 import * as alt from 'alt-server';
 import * as crc from '@stuyk/cross-resource-cache';
-import { Account, Character } from '../shared';
+import { Account, Character } from 'alt-crc';
 
 let isDatabaseReady = false;
 

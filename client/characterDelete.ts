@@ -1,5 +1,5 @@
 import * as alt from 'alt-client';
-import { Character } from '../shared';
+import { Character } from 'alt-crc';
 
 export function show(character: Character) {
     alt.emit('crc-native-menu', { destroy: true });

@@ -3,7 +3,7 @@ import * as CharacterDelete from './characterDelete';
 import * as CharacterPick from './characterPick';
 import * as CharacterCreate from './characterCreate';
 
-import { Character } from '../shared';
+import { Character } from 'alt-crc';
 
 import './characterDelete';
 import './characterPick';
