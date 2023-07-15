@@ -1,6 +1,7 @@
 import * as alt from 'alt-server';
 import * as crc from '@stuyk/cross-resource-cache';
 import { Account, Character } from 'alt-crc';
+import { config } from '../shared/index';
 
 let isDatabaseReady = false;
 
@@ -23,6 +24,8 @@ async function initializeCharacterSelect(player: alt.Player, account: Account) {
 }
 
 async function openCharacterSelect(player: alt.Player, account: Account) {
+    player.pos = config.position.player;
+
     await alt.Utils.waitFor(() => isDatabaseReady);
     const characters = await getCharacters(player, account);
     alt.emitClient(player, 'crc-select-character-start', characters);
