@@ -58,14 +58,8 @@ function updateCamera(option: { text: string; value: Character; id: string }) {
         return;
     }
 
-    if (!option.value) {
+    if (!option.value || !option.value.appearance) {
         alt.emit('crc-preview-character-destroy');
-        camera.update(config.position.nothing);
-        return;
-    }
-
-    if (!option.value.appearance) {
-         alt.emit('crc-preview-character-destroy');
         camera.update(config.position.nothing);
         return;
     }
